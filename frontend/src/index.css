@@ -1,0 +1,119 @@
+:root {
+  --bg: #f4ead8;
+  --bg-deep: #e2c8aa;
+  --panel: rgba(255, 251, 245, 0.92);
+  --input-bg: rgba(255, 252, 247, 0.96);
+  --text: #5a4d43;
+  --text-strong: #221c17;
+  --muted: #76675b;
+  --border: rgba(77, 58, 42, 0.14);
+  --accent: #c7642e;
+  --soft-accent: #efdbc4;
+  --shadow: 0 22px 48px rgba(72, 41, 18, 0.12);
+  --sans: "Segoe UI", "Trebuchet MS", sans-serif;
+
+  font: 16px/1.5 var(--sans);
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(201, 116, 60, 0.16), transparent 24%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  width: 42vw;
+  height: 42vw;
+  border-radius: 999px;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+body::before {
+  top: -14vw;
+  left: -12vw;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+body::after {
+  right: -12vw;
+  bottom: -18vw;
+  background: rgba(208, 132, 78, 0.24);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 28px 20px 36px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-strong);
+  line-height: 1.04;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5.8vw, 5rem);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: 1.02rem;
+}
+
+a {
+  color: #8d431b;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+}
+
+strong {
+  color: var(--text-strong);
+}
+
+@media (max-width: 640px) {
+  #root {
+    padding: 14px 14px 24px;
+  }
+}

@@ -1,0 +1,5 @@
+project_name        = "prosperas-reports"
+aws_region          = "us-east-1"
+frontend_bucket_name = "prosperas-reports-frontend-prod"
+db_password         = "replace-me"
+jwt_secret_key      = "replace-me"
