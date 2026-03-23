@@ -2,9 +2,11 @@
 
 Base funcional de una plataforma SaaS para procesar reportes asincronos con **FastAPI**, **React (Vite)**, **PostgreSQL** y servicios **AWS**. En desarrollo local se usan emulaciones con **LocalStack**.
 
-[![ci-cd](https://github.com/<OWNER>/<REPO>/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/<OWNER>/<REPO>/actions/workflows/ci-cd.yml)
+[![ci-cd](https://github.com/estebanalvarez-rocket/esteban-alvarez-prosperas-challenge/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/estebanalvarez-rocket/esteban-alvarez-prosperas-challenge/actions/workflows/ci-cd.yml)
 
-**URL de produccion:** `https://<REEMPLAZAR-CLOUDFRONT-DOMAIN>`
+**URL de produccion:** `https://d227v7gzn2191h.cloudfront.net`
+
+**API publica:** `http://prosperas-reports-alb-1153874681.us-east-1.elb.amazonaws.com`
 
 ## Levantamiento local
 
@@ -53,18 +55,18 @@ La infraestructura se administra con **Terraform** y el pipeline con **GitHub Ac
 
 ### Secrets necesarios
 
-| Categoria | Secret Name | Descripcion |
-|---|---|---|
-| AWS Auth | `AWS_ACCESS_KEY_ID` | Access Key del usuario IAM |
-| AWS Auth | `AWS_SECRET_ACCESS_KEY` | Secret Key del usuario IAM |
-| Repositorios | `API_ECR_REPOSITORY` | Repo ECR de la API |
-| Repositorios | `WORKER_ECR_REPOSITORY` | Repo ECR del worker |
-| Front/CDN | `FRONTEND_BUCKET_NAME` | Bucket S3 del frontend |
-| Front/CDN | `CLOUDFRONT_DISTRIBUTION_ID` | Distribucion CloudFront |
-| Capa App | `ECS_CLUSTER_NAME` | Cluster ECS |
-| Capa App | `ECS_API_SERVICE_NAME` | Servicio ECS de la API |
-| Capa App | `ECS_WORKER_SERVICE_NAME` | Servicio ECS del worker |
-| Capa App | `PROD_API_BASE_URL` | URL publica de la API |
+| Categoria    | Secret Name                  | Descripcion                |
+| ------------ | ---------------------------- | -------------------------- |
+| AWS Auth     | `AWS_ACCESS_KEY_ID`          | Access Key del usuario IAM |
+| AWS Auth     | `AWS_SECRET_ACCESS_KEY`      | Secret Key del usuario IAM |
+| Repositorios | `API_ECR_REPOSITORY`         | Repo ECR de la API         |
+| Repositorios | `WORKER_ECR_REPOSITORY`      | Repo ECR del worker        |
+| Front/CDN    | `FRONTEND_BUCKET_NAME`       | Bucket S3 del frontend     |
+| Front/CDN    | `CLOUDFRONT_DISTRIBUTION_ID` | Distribucion CloudFront    |
+| Capa App     | `ECS_CLUSTER_NAME`           | Cluster ECS                |
+| Capa App     | `ECS_API_SERVICE_NAME`       | Servicio ECS de la API     |
+| Capa App     | `ECS_WORKER_SERVICE_NAME`    | Servicio ECS del worker    |
+| Capa App     | `PROD_API_BASE_URL`          | URL publica de la API      |
 
 ## Ejecucion sin Docker
 
@@ -101,7 +103,6 @@ npm run dev
 
 - [TECHNICAL_DOCS.md](./TECHNICAL_DOCS.md): arquitectura, modelo de datos y flujo del worker
 - [AI_WORKFLOW.md](./AI_WORKFLOW.md): registro del uso de herramientas de IA
-- [INTERVIEW_QA.md](./INTERVIEW_QA.md): apoyo para preguntas tecnicas y de defensa
 
 ## Tests y calidad
 
