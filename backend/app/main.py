@@ -31,6 +31,9 @@ app.include_router(api_router, prefix="/api")
 
 @app.on_event("startup")
 def startup() -> None:
+    if settings.app_env == "test":
+        logger.info("skipping_db_init_for_tests")
+        return
     init_db()
 
 
