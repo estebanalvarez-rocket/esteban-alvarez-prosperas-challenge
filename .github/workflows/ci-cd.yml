@@ -132,6 +132,34 @@ jobs:
         id: ecr-login
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Validate deploy configuration
+        env:
+          API_ECR_REPOSITORY: ${{ secrets.API_ECR_REPOSITORY }}
+          WORKER_ECR_REPOSITORY: ${{ secrets.WORKER_ECR_REPOSITORY }}
+          FRONTEND_BUCKET_NAME: ${{ secrets.FRONTEND_BUCKET_NAME }}
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          ECS_CLUSTER_NAME: ${{ secrets.ECS_CLUSTER_NAME }}
+          ECS_API_SERVICE_NAME: ${{ secrets.ECS_API_SERVICE_NAME }}
+          ECS_WORKER_SERVICE_NAME: ${{ secrets.ECS_WORKER_SERVICE_NAME }}
+          PROD_API_BASE_URL: ${{ secrets.PROD_API_BASE_URL }}
+        run: |
+          required_vars=(
+            API_ECR_REPOSITORY
+            WORKER_ECR_REPOSITORY
+            FRONTEND_BUCKET_NAME
+            CLOUDFRONT_DISTRIBUTION_ID
+            ECS_CLUSTER_NAME
+            ECS_API_SERVICE_NAME
+            ECS_WORKER_SERVICE_NAME
+            PROD_API_BASE_URL
+          )
+          for var_name in "${required_vars[@]}"; do
+            if [ -z "${!var_name}" ]; then
+              echo "Missing required GitHub secret: $var_name"
+              exit 1
+            fi
+          done
+
       - name: Build and push Backend Images
         env:
           ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
