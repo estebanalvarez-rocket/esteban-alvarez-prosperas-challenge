@@ -19,6 +19,7 @@ Esta carpeta define la infraestructura productiva con Terraform para desplegar:
 - Terraform >= 1.8
 - AWS CLI autenticado
 - un dominio opcional si luego quieres HTTPS custom
+- un certificado ACM existente si quieres habilitar HTTPS en el ALB
 
 ## Uso rapido
 
@@ -28,6 +29,8 @@ terraform init
 terraform plan -var-file="terraform.tfvars"
 terraform apply -var-file="terraform.tfvars"
 ```
+
+Si defines `alb_certificate_arn`, Terraform crea un listener HTTPS en `443`, redirige `80 -> 443` y el output `api_base_url` pasa a devolver una URL `https://...`.
 
 ## Flujo esperado
 

@@ -1,5 +1,5 @@
 output "api_base_url" {
-  value = "http://${aws_lb.api.dns_name}"
+  value = local.api_tls_enabled ? "https://${aws_lb.api.dns_name}" : "http://${aws_lb.api.dns_name}"
 }
 
 output "frontend_url" {

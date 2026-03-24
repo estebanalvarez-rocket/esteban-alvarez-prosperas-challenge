@@ -78,3 +78,9 @@ variable "frontend_bucket_name" {
   type        = string
   description = "Bucket S3 para el frontend"
 }
+
+variable "alb_certificate_arn" {
+  type        = string
+  description = "ARN de un certificado ACM existente para habilitar HTTPS en el ALB"
+  default     = ""
+}
