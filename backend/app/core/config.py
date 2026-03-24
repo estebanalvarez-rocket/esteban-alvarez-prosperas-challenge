@@ -19,8 +19,8 @@ class Settings(BaseSettings):
 
     aws_region: str = Field(default="us-east-1", alias="AWS_REGION")
     aws_endpoint_url: str | None = Field(default=None, alias="AWS_ENDPOINT_URL")
-    aws_access_key_id: str = Field(default="test", alias="AWS_ACCESS_KEY_ID")
-    aws_secret_access_key: str = Field(default="test", alias="AWS_SECRET_ACCESS_KEY")
+    aws_access_key_id: str | None = Field(default=None, alias="AWS_ACCESS_KEY_ID")
+    aws_secret_access_key: str | None = Field(default=None, alias="AWS_SECRET_ACCESS_KEY")
 
     sqs_queue_url: str | None = Field(default=None, alias="SQS_QUEUE_URL")
     sqs_standard_queue_url: str | None = Field(default=None, alias="SQS_STANDARD_QUEUE_URL")
